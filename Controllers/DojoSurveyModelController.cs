@@ -8,19 +8,29 @@ using DojoSurveyModel.Models;
 
 namespace DojoSurveyModel.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    [HttpGet("")]
+    public IActionResult Index()
     {
-        [HttpGet("")]
-        public IActionResult Index()
-        {
-          return View();
-        }
-
-        [HttpPost("result")]
-        public IActionResult Results(Survey MySurvey)
-        {
-          return View(MySurvey);
-        }
-
+      return View();
     }
+
+    [HttpPost("result")]
+    public IActionResult Create(Survey MySurvey)
+    {
+      if(ModelState.IsValid)
+        return RedirectToAction("Result");
+      
+      else
+        return View("Index");
+    }
+
+    [HttpGet("success")]
+    public IActionResult Result()
+    {
+      return View("Results");
+    }
+
+  }
 }

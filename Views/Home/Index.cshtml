@@ -1,17 +1,18 @@
-﻿@{
-  ViewData["Title"] = "Home Page";
-}
-@Model
+﻿@model Survey
+
 <div class="container-fluid">
   <div class="row">
-    <form class="col-md-12 form-horizontal" action="/result", method="post">
+    <form class="col-md-12 form-horizontal" action="/result" method="post">
       <div class="form-group">
-        <label for="Name">Your Name:</label>
-        <input type="text" name="Name" placeholder="Enter Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" placeholder="Enter Name">
       </div>
+
       <div class="form-group">
-        <label for="Locations">Dojo Location:</label>
-        <select class="form-control" name="Locations">
+        <span asp-validation-for="Locations" class="text-danger"></span>
+        <label asp-for="Locations"></label>
+        <select class="form-control" asp-for="Locations">
           <option value="Seattle">Seattle</option>
           <option value="San Jose">San Jose</option>
           <option value="Boise">Boise</option>
@@ -20,20 +21,27 @@
           <option value="Salt Lake City">Salt Lake City</option>
         </select>
       </div>
+
       <div class="form-group">
-        Favorite Language:
-          <select name="Languages" class="form-control">
-            <option value="Python">Python</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="C#">C#</option>
-            <option value="Java">Java</option>
-          </select>
+        <span asp-validation-for="Languages"></span>
+        <label asp-for="Languages"></label>
+        <select asp-for="Languages" class="form-control">
+          <option value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="C#">C#</option>
+          <option value="Java">Java</option>
+        </select>
+        </select>
       </div>
+
       <div class="form-group">
-        <label for="Comments">Comment:</label>
-        <textarea class="form-control" name="Comments" cols="30" rows="10"></textarea>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <span asp-validation-for="Comments" class="text-danger"></span>
+        <label asp-for="Comments">Comment:</label>
+        <textarea class="form-control" asp-for="Comments" cols="30" rows="10"></textarea>
       </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
   </div>
 </div>
