@@ -1,0 +1,39 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+}
+@Model
+<div class="container-fluid">
+  <div class="row">
+    <form class="col-md-12 form-horizontal" action="/result", method="post">
+      <div class="form-group">
+        <label for="Name">Your Name:</label>
+        <input type="text" name="Name" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="Locations">Dojo Location:</label>
+        <select class="form-control" name="Locations">
+          <option value="Seattle">Seattle</option>
+          <option value="San Jose">San Jose</option>
+          <option value="Boise">Boise</option>
+          <option value="Chicago">Chicago</option>
+          <option value="New York">New York</option>
+          <option value="Salt Lake City">Salt Lake City</option>
+        </select>
+      </div>
+      <div class="form-group">
+        Favorite Language:
+          <select name="Languages" class="form-control">
+            <option value="Python">Python</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="C#">C#</option>
+            <option value="Java">Java</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="Comments">Comment:</label>
+        <textarea class="form-control" name="Comments" cols="30" rows="10"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
